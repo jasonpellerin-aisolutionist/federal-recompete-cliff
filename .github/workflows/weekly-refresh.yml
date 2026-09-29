@@ -1,0 +1,73 @@
+name: Weekly refresh
+
+# Runs every Monday 13:00 UTC (7am Denver). Pulls new and modified awards plus the Fed-Spend
+# radar, rescores the FY27 watchlist with the committed, evaluated model, commits the app data
+# (Streamlit redeploys on push), and posts a digest of what changed to n8n
+# (automation/n8n/recompete-weekly-digest.json), which emails it and raises an alert if a week
+# goes by without one. It never retrains: a new model is a reviewed change.
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  repository_dispatch:
+    types: [weekly-refresh]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Restore raw award files
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: raw-v2-${{ github.run_id }}
+          restore-keys: raw-v2-
+
+      - name: Install
+        run: uv sync --frozen
+
+      # Skips fiscal years already in the cache and fails the job if any year cannot be pulled.
+      - name: Full history (missing years only)
+        run: make download backfill WORKERS=2
+
+      - name: Refresh, rebuild, rescore
+        env:
+          FEDSPEND_API_KEY: ${{ secrets.FEDSPEND_API_KEY }}
+          FEDSPEND_API_BASE: ${{ secrets.FEDSPEND_API_BASE }}
+          SECRETS: ""
+        run: make weekly
+
+      - name: Digest to n8n
+        env:
+          N8N_DIGEST_WEBHOOK_URL: ${{ secrets.N8N_DIGEST_WEBHOOK_URL }}
+          N8N_DIGEST_TOKEN: ${{ secrets.N8N_DIGEST_TOKEN }}
+        run: uv run python -m recompete.digest
+
+      - name: Commit refreshed watchlist
+        run: |
+          git config user.name "recompete-bot"
+          git config user.email "jason@jasonpellerin.com"
+          git add app/data tableau/exports reports/weekly_digest.json
+          if git diff --cached --quiet; then
+            echo "No changes this week."
+          else
+            git commit -m "Weekly refresh: FY27 watchlist as of $(date -u +%Y-%m-%d)"
+            git pull --rebase --autostash origin main
+            git push
+          fi

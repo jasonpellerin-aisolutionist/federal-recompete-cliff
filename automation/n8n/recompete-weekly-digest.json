@@ -1,0 +1,125 @@
+{
+  "name": "Recompete Cliff: weekly digest and watchdog",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "recompete-cliff-digest",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "id": "b8a4f3d2-1c55-4a5e-9f0a-6a1d2c3e4f01",
+      "name": "Digest from GitHub Actions",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "recompete-cliff-digest",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_HEADER_AUTH_CREDENTIAL_ID",
+          "name": "Recompete Cliff digest token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const d = $json.body ?? $json;\nconst state = $getWorkflowStaticData('global');\nstate.lastDigestAt = new Date().toISOString();\nstate.lastAsof = d.asof;\n\nconst pct = (p) => `${Math.round(p * 100)}%`;\nconst cell = 'padding:6px 10px;border-bottom:1px solid #e2e8f0;';\nconst row = (r) => `<tr><td style=\"${cell}\"><a href=\"${r.usaspending}\">${r.piid}</a></td><td style=\"${cell}\">${r.incumbent}</td><td style=\"${cell}\">${r.agency}</td><td style=\"${cell}\">${r.end_date}</td><td style=\"${cell}text-align:right\">$${r.obligated_m}M</td><td style=\"${cell}text-align:right\">${pct(r.p_change)}${r.delta !== undefined ? ` (${r.delta > 0 ? '+' : ''}${Math.round(r.delta * 100)} pts)` : ''}</td><td style=\"${cell}\">${r.top_driver || ''}</td></tr>`;\nconst table = (title, rows) => rows && rows.length\n  ? `<h3 style=\"color:#1e3a5f;margin:18px 0 6px\">${title}</h3><table style=\"border-collapse:collapse;font-size:13px;color:#334155\"><tr style=\"color:#0f172a;text-align:left\"><th style=\"${cell}\">Contract</th><th style=\"${cell}\">Incumbent</th><th style=\"${cell}\">Agency</th><th style=\"${cell}\">Ends</th><th style=\"${cell}\">Obligated</th><th style=\"${cell}\">P(loses)</th><th style=\"${cell}\">Top driver</th></tr>${rows.map(row).join('')}</table>`\n  : '';\n\nconst html = `<div style=\"font-family:Arial,sans-serif;color:#334155;max-width:900px\">\n<p>Hey there Jason,</p>\n<p>The FY27 recompete watchlist refreshed as of <b>${d.asof}</b>: ${d.contracts.toLocaleString()} contracts, $${d.obligated_b}B obligated, about ${d.expected_changes} expected to change hands.${d.added !== undefined ? ` ${d.added} added and ${d.dropped_off} dropped off since last week.` : ''}</p>\n${table('New to the top 5%', d.new_to_top_band)}\n${table('Top 5% ending within 90 days', d.top_band_ending_90d)}\n${table('Biggest moves this week', d.biggest_moves)}\n<p style=\"margin-top:18px\"><a href=\"${d.app_url}\" style=\"color:#0f766e\">Open the watchlist app</a></p>\n</div>`;\n\nconst n = (d.new_to_top_band || []).length;\nreturn [{ json: { subject: `FY27 recompete watchlist: ${n} new in the top 5% (${d.asof})`, html } }];"
+      },
+      "id": "c1d2e3f4-2b66-4b6f-8a1b-7b2e3d4f5a02",
+      "name": "Format digest email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "sendTo": "jason@jasonpellerin.com",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "d2e3f4a5-3c77-4c70-9b2c-8c3f4e5a6b03",
+      "name": "Email digest",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [480, 0],
+      "webhookId": "5f1f0e3a-7d44-4d8e-a3a1-0c9d8e7f6a11",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_WITH_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [2],
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "id": "e3f4a5b6-4d88-4d81-8c3d-9d4a5f6b7c04",
+      "name": "Tuesday 9am watchdog",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "const state = $getWorkflowStaticData('global');\nconst last = state.lastDigestAt ? new Date(state.lastDigestAt) : null;\nconst ageDays = last ? (Date.now() - last.getTime()) / 86400000 : Infinity;\nif (ageDays <= 8) return [];\nconst when = last ? `${last.toISOString().slice(0, 10)} (${Math.floor(ageDays)} days ago)` : 'never';\nconst html = `<div style=\"font-family:Arial,sans-serif;color:#334155\"><p>Hey there Jason,</p><p>No recompete watchlist digest has arrived since ${when}. The Monday GitHub Actions run may have failed or been disabled.</p><p><a href=\"https://github.com/jasonpellerin-aisolutionist/federal-recompete-cliff/actions/workflows/weekly-refresh.yml\" style=\"color:#0f766e\">Check the weekly refresh runs</a></p></div>`;\nreturn [{ json: { subject: 'Recompete watchlist: weekly refresh missed', html } }];"
+      },
+      "id": "f4a5b6c7-5e99-4e92-9d4e-0e5b6a7c8d05",
+      "name": "Digest overdue?",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 240]
+    },
+    {
+      "parameters": {
+        "sendTo": "jason@jasonpellerin.com",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "a5b6c7d8-6fa0-4fa3-8e5f-1f6c7b8d9e06",
+      "name": "Email missed-run alert",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [480, 240],
+      "webhookId": "6a2a1f4b-8e55-4e9f-b4b2-1d0e9f8a7b22",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_WITH_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Digest from GitHub Actions": {
+      "main": [[{ "node": "Format digest email", "type": "main", "index": 0 }]]
+    },
+    "Format digest email": {
+      "main": [[{ "node": "Email digest", "type": "main", "index": 0 }]]
+    },
+    "Tuesday 9am watchdog": {
+      "main": [[{ "node": "Digest overdue?", "type": "main", "index": 0 }]]
+    },
+    "Digest overdue?": {
+      "main": [[{ "node": "Email missed-run alert", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Denver"
+  }
+}

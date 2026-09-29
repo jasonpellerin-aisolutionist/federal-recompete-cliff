@@ -1,0 +1,76 @@
+{
+  "base_rate_train": 0.48213488164359086,
+  "test_change_rate": 0.5044404973357016,
+  "n": {
+    "train": 4478,
+    "valid": 1279,
+    "test": 1126
+  },
+  "best_iteration": 229,
+  "models": {
+    "Fed-Spend heuristic (as shipped, score/100)": {
+      "auc": 0.5853478847998385,
+      "pr_auc": 0.5593684825674965,
+      "brier": 0.2661571047957371,
+      "log_loss": 0.7338283112896695,
+      "ece": 0.15050621669626993,
+      "top_decile_precision": 0.5267857142857143,
+      "top_decile_lift": 1.0442970321931588
+    },
+    "Fed-Spend heuristic (recalibrated)": {
+      "auc": 0.5973705134029986,
+      "pr_auc": 0.5654371063839654,
+      "brier": 0.2461422257161897,
+      "log_loss": 0.6865640733818102,
+      "ece": 0.058035826763637624,
+      "top_decile_precision": 0.5357142857142857,
+      "top_decile_lift": 1.061996981891348
+    },
+    "Logistic regression": {
+      "auc": 0.7428283860871322,
+      "pr_auc": 0.7221435842291963,
+      "brier": 0.20894023511992404,
+      "log_loss": 0.6099748747705076,
+      "ece": 0.059316495445704435,
+      "top_decile_precision": 0.7946428571428571,
+      "top_decile_lift": 1.5752955231388328
+    },
+    "LightGBM (calibrated)": {
+      "auc": 0.7544361148972689,
+      "pr_auc": 0.7246516215738233,
+      "brier": 0.20381502657539957,
+      "log_loss": 0.5942932741597374,
+      "ece": 0.05312962226116926,
+      "top_decile_precision": 0.8839285714285714,
+      "top_decile_lift": 1.7522950201207241
+    },
+    "LightGBM without label-history features (leakage check)": {
+      "auc": 0.7558054419708213,
+      "pr_auc": 0.7509901338219163,
+      "brier": 0.2019987446428224,
+      "log_loss": 0.5870091209229708,
+      "ece": 0.05234449557370453,
+      "top_decile_precision": 0.9017857142857143,
+      "top_decile_lift": 1.7876949195171026
+    }
+  },
+  "auc_gap_lgbm_vs_heuristic": [
+    0.16898967127794323,
+    0.13102119977407678,
+    0.20740299086420952
+  ],
+  "auc_gap_lgbm_vs_logistic": [
+    0.011784474104464353,
+    -0.0020638621196239102,
+    0.024771735383708297
+  ],
+  "high_confidence_only": {
+    "auc": 0.7933360389610389,
+    "pr_auc": 0.7282287059380015,
+    "brier": 0.18610740919011598,
+    "log_loss": 0.5494049888458117,
+    "ece": 0.04534923356457448,
+    "top_decile_precision": 0.8714285714285714,
+    "top_decile_lift": 1.9198660714285716
+  }
+}

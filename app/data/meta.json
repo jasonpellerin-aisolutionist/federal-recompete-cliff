@@ -1,0 +1,46 @@
+{
+  "asof": "September 29, 2026",
+  "n_labeled": 6883,
+  "change_rate": 0.48213488164359086,
+  "test_metrics": {
+    "auc": 0.7544361148972689,
+    "pr_auc": 0.7246516215738233,
+    "brier": 0.20381502657539957,
+    "log_loss": 0.5942932741597374,
+    "ece": 0.05312962226116926,
+    "top_decile_precision": 0.8839285714285714,
+    "top_decile_lift": 1.7522950201207241
+  },
+  "logistic_metrics": {
+    "auc": 0.7428283860871322,
+    "pr_auc": 0.7221435842291963,
+    "brier": 0.20894023511992404,
+    "log_loss": 0.6099748747705076,
+    "ece": 0.059316495445704435,
+    "top_decile_precision": 0.7946428571428571,
+    "top_decile_lift": 1.5752955231388328
+  },
+  "heuristic_metrics": {
+    "auc": 0.5853478847998385,
+    "pr_auc": 0.5593684825674965,
+    "brier": 0.2661571047957371,
+    "log_loss": 0.7338283112896695,
+    "ece": 0.15050621669626993,
+    "top_decile_precision": 0.5267857142857143,
+    "top_decile_lift": 1.0442970321931588
+  },
+  "high_confidence_metrics": {
+    "auc": 0.7933360389610389,
+    "pr_auc": 0.7282287059380015,
+    "brier": 0.18610740919011598,
+    "log_loss": 0.5494049888458117,
+    "ece": 0.04534923356457448,
+    "top_decile_precision": 0.8714285714285714,
+    "top_decile_lift": 1.9198660714285716
+  },
+  "audit": {
+    "same_requirement": 66,
+    "wrong_match": 17,
+    "partial": 17
+  }
+}

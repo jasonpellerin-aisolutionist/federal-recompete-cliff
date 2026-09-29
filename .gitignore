@@ -1,0 +1,35 @@
+# Data is downloaded by `make download`; never commit raw or processed files
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.duckdb
+*.duckdb.wal
+
+# Only the evaluated model is versioned (the weekly job scores with it and never retrains)
+models/*
+!models/.gitkeep
+!models/incumbent_loss.joblib
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Tableau local workbooks (the published version lives on Tableau Public)
+*.twbr
+tableau/*.hyper
+tableau/*.twb
+tableau/*.twbx
+hyperd*.log
+
+# Secrets are pulled from Infisical at runtime; never write them to disk
+.env
+.env.*
+.streamlit/secrets.toml
+
+# OS / editor
+.DS_Store
