@@ -29,6 +29,10 @@ MIN_OBLIGATION = 1_000_000
 BACKFILL_WINDOW_DAYS = 90
 POLL_SECONDS = 10
 TIMEOUT_SECONDS = 60 * 60
+# USAspending often marks a finished HTTP request as failed with "An error occurred."
+# Re-queue that job. Do not retry a timeout: one hour is already the whole budget for a slice.
+JOB_ATTEMPTS = 3
+JOB_RETRY_SLEEP = 60
 
 KEEP = [
     "contract_award_unique_key",
@@ -142,6 +146,23 @@ def wait_for(status_url: str, fy: int | str) -> dict:
     raise TimeoutError(f"{fy} download did not finish in {TIMEOUT_SECONDS}s")
 
 
+def fetch_status(start: str, end: str, date_type: str, label: str) -> dict:
+    """Queue a download and wait. A failed job is re-queued. A timeout is not."""
+    last: RuntimeError | None = None
+    for attempt in range(1, JOB_ATTEMPTS + 1):
+        job = request_download(start, end, date_type=date_type)
+        try:
+            return wait_for(job["status_url"], label)
+        except RuntimeError as exc:
+            last = exc
+            print(f"{label}: attempt {attempt} of {JOB_ATTEMPTS} failed ({exc})", flush=True)
+            if attempt == JOB_ATTEMPTS:
+                break
+            time.sleep(JOB_RETRY_SLEEP)
+    assert last is not None
+    raise last
+
+
 def read_awards(zip_bytes: bytes) -> pd.DataFrame:
     frames = []
     with zipfile.ZipFile(io.BytesIO(zip_bytes)) as z:
@@ -162,8 +183,7 @@ def download_year(fy: int, force: bool = False) -> str:
     if out.exists() and not force:
         return f"FY{fy}: cached ({out.name})"
     started = time.monotonic()
-    job = request_download(*fy_bounds(fy))
-    status = wait_for(job["status_url"], f"FY{fy}")
+    status = fetch_status(*fy_bounds(fy), "date_signed", f"FY{fy}")
     blob = HTTP.get(status["file_url"], timeout=600).content
     df = read_awards(blob)
     df["source_fy_signed"] = fy
@@ -180,8 +200,8 @@ def download_modified(days: int) -> str:
     """
     end = date.today()
     start = end - timedelta(days=days)
-    job = request_download(start.isoformat(), end.isoformat(), date_type="last_modified_date")
-    status = wait_for(job["status_url"], f"modified {start}..{end}")
+    label = f"modified {start}..{end}"
+    status = fetch_status(start.isoformat(), end.isoformat(), "last_modified_date", label)
     df = read_awards(HTTP.get(status["file_url"], timeout=600).content)
     df["source_fy_signed"] = None
     out = RAW_DIR / f"awards_modified_{end:%Y%m%d}.parquet"
@@ -226,8 +246,8 @@ def download_window(start: date, end: date, force: bool = False) -> str:
     if out.exists() and not force:
         return f"backfill {start}: cached ({out.name})"
     started = time.monotonic()
-    job = request_download(start.isoformat(), end.isoformat(), date_type="last_modified_date")
-    status = wait_for(job["status_url"], f"backfill {start}..{end}")
+    label = f"backfill {start}..{end}"
+    status = fetch_status(start.isoformat(), end.isoformat(), "last_modified_date", label)
     df = read_awards(HTTP.get(status["file_url"], timeout=600).content)
     df["source_fy_signed"] = None
     RAW_DIR.mkdir(parents=True, exist_ok=True)
