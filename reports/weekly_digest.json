@@ -1,234 +1,246 @@
 {
-  "asof": "October 13, 2026",
+  "asof": "October 19, 2026",
   "app_url": "https://fy27-recompete-cliff.streamlit.app",
-  "contracts": 17039,
-  "obligated_b": 1056.9,
-  "expected_changes": 8695,
+  "contracts": 17208,
+  "obligated_b": 1065.5,
+  "expected_changes": 8791,
   "top_band_ending_90d": [
     {
-      "piid": "N6600125F0243",
-      "incumbent": "M. C. DEAN, INC.",
+      "piid": "2032H824F00003",
+      "incumbent": "CHEROKEE FEDERAL SOLUTIONS, L.L.C.",
+      "agency": "Department of the Treasury",
+      "office": "OPERATION SERVICES",
+      "end_date": "2026-10-19",
+      "obligated_m": 18.2,
+      "p_change": 0.898,
+      "top_driver": "single- or multiple-award vehicle",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_2032H824F00003_2050_47QSWA19D005Y_4732/"
+    },
+    {
+      "piid": "70SBUR22F00000242",
+      "incumbent": "CYBERNAMIC LLC",
+      "agency": "Department of Homeland Security",
+      "office": "USCIS CONTRACTING OFFICE(ERBUR)",
+      "end_date": "2026-10-20",
+      "obligated_m": 24.2,
+      "p_change": 0.898,
+      "top_driver": "single- or multiple-award vehicle",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_70SBUR22F00000242_7003_47QTCB21D0381_4732/"
+    },
+    {
+      "piid": "47QMCA24F0627",
+      "incumbent": "BLUE BIRD BODY COMPANY",
+      "agency": "General Services Administration",
+      "office": "GSA/FAS AUTOMOTIVE CENTER",
+      "end_date": "2026-10-21",
+      "obligated_m": 6.5,
+      "p_change": 0.898,
+      "top_driver": "number of offers on the last award",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_47QMCA24F0627_4732_47QMCA21D0002_4732/"
+    },
+    {
+      "piid": "FA823225FB002",
+      "incumbent": "RICHARD MANUFACTURING COMPANY",
       "agency": "Department of Defense",
-      "office": "NIWC PACIFIC",
-      "end_date": "2026-10-13",
-      "obligated_m": 7.8,
+      "office": "FA8232  AFLCMC WWMK",
+      "end_date": "2026-10-26",
+      "obligated_m": 6.3,
+      "p_change": 0.898,
+      "top_driver": "single- or multiple-award vehicle",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_FA823225FB002_9700_FA823223D0002_9700/"
+    },
+    {
+      "piid": "SPRMM125FTS04",
+      "incumbent": "STS INTERNATIONAL, INCORPORATED",
+      "agency": "Department of Defense",
+      "office": "SPRMM1 DLA MECHANICSBURG",
+      "end_date": "2026-10-26",
+      "obligated_m": 13.1,
       "p_change": 0.898,
       "top_driver": "how often this office changes vendors",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_N6600125F0243_9700_N0003919D0022_9700/"
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_SPRMM125FTS04_9700_SPRBL123D0007_9700/"
     },
     {
-      "piid": "N0016425F5037",
-      "incumbent": "MILLS MARINE & SHIP REPAIR LLC",
+      "piid": "SP470925F0005",
+      "incumbent": "STELLAR INNOVATIONS & SOLUTIONS INC.",
       "agency": "Department of Defense",
-      "office": "NSWC CRANE",
-      "end_date": "2026-10-13",
-      "obligated_m": 6.0,
+      "office": "DCSO PHILADELPHIA",
+      "end_date": "2026-10-26",
+      "obligated_m": 9.1,
       "p_change": 0.898,
-      "top_driver": "incumbent is an 8(a) firm",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_N0016425F5037_9700_47QSMS24D001U_4732/"
+      "top_driver": "how often this office changes vendors",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_SP470925F0005_9700_SP470917D0006_9700/"
     },
     {
-      "piid": "W15QKN24F0148",
-      "incumbent": "TEVET LLC",
-      "agency": "Department of Defense",
-      "office": "W6QK ACC-RI-PICATINNY",
-      "end_date": "2026-10-14",
-      "obligated_m": 15.0,
-      "p_change": 0.898,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W15QKN24F0148_9700_W15QKN22D0037_9700/"
-    },
-    {
-      "piid": "70B04C25F00001072",
-      "incumbent": "ARDENT MANAGEMENT CONSULTING, LLC",
-      "agency": "Department of Homeland Security",
-      "office": "INFORMATION TECHNOLOGY CONTRACTING DIVISION",
-      "end_date": "2026-10-15",
-      "obligated_m": 8.1,
-      "p_change": 0.898,
-      "top_driver": "single- or multiple-award vehicle",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_70B04C25F00001072_7014_HHSN316201200199W_7529/"
-    },
-    {
-      "piid": "W519TC25F0414",
-      "incumbent": "HIGH NOON UNLIMITED INC",
-      "agency": "Department of Defense",
-      "office": "W6QK ACC-RI",
-      "end_date": "2026-10-15",
-      "obligated_m": 9.6,
-      "p_change": 0.898,
-      "top_driver": "single- or multiple-award vehicle",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W519TC25F0414_9700_W52P1J21D0002_9700/"
-    },
-    {
-      "piid": "70SBUR22F00000212",
-      "incumbent": "ARETECSBD LLC",
-      "agency": "Department of Homeland Security",
-      "office": "USCIS CONTRACTING OFFICE(ERBUR)",
-      "end_date": "2026-10-15",
-      "obligated_m": 19.5,
-      "p_change": 0.898,
-      "top_driver": "single- or multiple-award vehicle",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_70SBUR22F00000212_7003_47QTCB22D0173_4732/"
-    },
-    {
-      "piid": "70SBUR22F00000004",
-      "incumbent": "EXCELLA, LLC",
-      "agency": "Department of Homeland Security",
-      "office": "USCIS CONTRACTING OFFICE(ERBUR)",
-      "end_date": "2026-10-15",
-      "obligated_m": 65.5,
-      "p_change": 0.898,
-      "top_driver": "single- or multiple-award vehicle",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_70SBUR22F00000004_7003_75N98120D00227_7529/"
-    },
-    {
-      "piid": "36C10B24F0366",
-      "incumbent": "ARCHITECHTURE SOLUTIONS LLC",
-      "agency": "Department of Veterans Affairs",
-      "office": "TECHNOLOGY ACQUISITION CENTER NJ (36C10B)",
-      "end_date": "2026-10-16",
-      "obligated_m": 5.3,
-      "p_change": 0.898,
-      "top_driver": "single- or multiple-award vehicle",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_36C10B24F0366_3600_NNG15SD42B_8000/"
-    },
-    {
-      "piid": "W912HN25FA004",
-      "incumbent": "MERRICK-RS & H JOINT VENTURE LLP",
-      "agency": "Department of Defense",
-      "office": "W074 ENDIST SAVANNAH",
-      "end_date": "2026-10-16",
-      "obligated_m": 7.2,
-      "p_change": 0.898,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W912HN25FA004_9700_W912HN24D2006_9700/"
-    },
-    {
-      "piid": "HT941024F0074",
-      "incumbent": "AKAHI INGENESIS PARTNERS LLC",
+      "piid": "HT941024F0070",
+      "incumbent": "ENTERPRISE RESOURCE PLANNING INTERNATIONAL, LLC",
       "agency": "Department of Defense",
       "office": "DEFENSE HEALTH AGENCY HCD WEST",
-      "end_date": "2026-10-18",
-      "obligated_m": 5.2,
+      "end_date": "2026-10-27",
+      "obligated_m": 11.2,
       "p_change": 0.898,
       "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_HT941024F0074_9700_HT005018D0027_9700/"
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_HT941024F0070_9700_HT005018D0019_9700/"
+    },
+    {
+      "piid": "SP470925F0086",
+      "incumbent": "GENERAL DYNAMICS INFORMATION TECHNOLOGY, INC.",
+      "agency": "Department of Defense",
+      "office": "DCSO PHILADELPHIA",
+      "end_date": "2026-10-28",
+      "obligated_m": 5.2,
+      "p_change": 0.898,
+      "top_driver": "how often this office changes vendors",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_SP470925F0086_9700_SP470924D0074_9700/"
+    },
+    {
+      "piid": "N0003925F2119",
+      "incumbent": "SYSTEMS ENGINEERING SUPPORT CO.",
+      "agency": "Department of Defense",
+      "office": "NAVAL INFORMATION WARFARE SYSTEMS",
+      "end_date": "2026-10-29",
+      "obligated_m": 21.1,
+      "p_change": 0.898,
+      "top_driver": "how often this office changes vendors",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_N0003925F2119_9700_N0003921D2003_9700/"
+    },
+    {
+      "piid": "W91RUS25FA103",
+      "incumbent": "ADVANCED IT CONCEPTS, LLC",
+      "agency": "Department of Defense",
+      "office": "W6QK ACC-APG CONTR CTR",
+      "end_date": "2026-10-29",
+      "obligated_m": 20.0,
+      "p_change": 0.898,
+      "top_driver": "incumbent is an 8(a) firm",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W91RUS25FA103_9700_W9128Z22D0004_9700/"
     }
   ],
   "new_to_top_band": [
     {
-      "piid": "N5005426F2067",
-      "incumbent": "COLONNA'S SHIP YARD, INCORPORATED",
+      "piid": "FA489024F0087",
+      "incumbent": "RAVN GROUP, INC.",
       "agency": "Department of Defense",
-      "office": "MID ATLANTIC REG MAINT CTR",
-      "end_date": "2027-05-20",
-      "obligated_m": 9.8,
-      "p_change": 0.898,
-      "top_driver": "single- or multiple-award vehicle",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_N5005426F2067_9700_N5005426D0002_9700/"
-    },
-    {
-      "piid": "N5005426FC010",
-      "incumbent": "MARINE HYDRAULICS INTERNATIONAL, LLC",
-      "agency": "Department of Defense",
-      "office": "MID ATLANTIC REG MAINT CTR",
-      "end_date": "2026-12-14",
-      "obligated_m": 12.4,
-      "p_change": 0.898,
-      "top_driver": "single- or multiple-award vehicle",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_N5005426FC010_9700_N0002422D4404_9700/"
-    },
-    {
-      "piid": "2032H523F00312",
-      "incumbent": "SKY SOLUTIONS LLC",
-      "agency": "Department of the Treasury",
-      "office": "TAXPAYER FOCUSED SUPPORT",
-      "end_date": "2026-12-31",
-      "obligated_m": 13.6,
-      "p_change": 0.898,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_2032H523F00312_2050_47QTCB22D0252_4732/"
-    },
-    {
-      "piid": "HT001423F0077",
-      "incumbent": "DONALD L. MOONEY ENTERPRISES, LLC",
-      "agency": "Department of Defense",
-      "office": "DEFENSE HEALTH AGENCY",
-      "end_date": "2027-03-31",
-      "obligated_m": 5.2,
-      "p_change": 0.898,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_HT001423F0077_9700_HT005018D0030_9700/"
-    },
-    {
-      "piid": "19AQMM25F1240",
-      "incumbent": "DNI EMERGING TECHNOLOGIES, LLC",
-      "agency": "Department of State",
-      "office": "ACQUISITIONS - AQM MOMENTUM",
-      "end_date": "2027-05-05",
-      "obligated_m": 5.8,
-      "p_change": 0.898,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_19AQMM25F1240_1900_47QRCA25DA005_4732/"
-    },
-    {
-      "piid": "19AQMM25F0592",
-      "incumbent": "APPLIED DEVELOPMENT, LLC",
-      "agency": "Department of State",
-      "office": "ACQUISITIONS - AQM MOMENTUM",
-      "end_date": "2027-04-03",
-      "obligated_m": 5.5,
+      "office": "FA4890  HQ ACC AMIC",
+      "end_date": "2027-09-01",
+      "obligated_m": 18.8,
       "p_change": 0.898,
       "top_driver": "how often this office changes vendors",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_19AQMM25F0592_1900_19AQMM23D0056_1900/"
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_FA489024F0087_9700_FA489020D0001_9700/"
     },
     {
-      "piid": "W912DY21F0657",
-      "incumbent": "BAY WEST LLC",
+      "piid": "FA860925FB031",
+      "incumbent": "SOURCE ONE SPARES LLC",
       "agency": "Department of Defense",
-      "office": "W2V6 USA ENG SPT CTR HUNTSVIL",
-      "end_date": "2027-06-20",
-      "obligated_m": 8.9,
-      "p_change": 0.898,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W912DY21F0657_9700_W912DY20D0015_9700/"
-    },
-    {
-      "piid": "HT940623F0086",
-      "incumbent": "ENTERPRISE RESOURCE PLANNING INTERNATIONAL, LLC",
-      "agency": "Department of Defense",
-      "office": "DEFENSE HEALTH AGENCY",
-      "end_date": "2027-07-31",
-      "obligated_m": 10.8,
-      "p_change": 0.898,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_HT940623F0086_9700_HT005018D0019_9700/"
-    },
-    {
-      "piid": "36C10B26F0468",
-      "incumbent": "TISTA SCIENCE AND TECHNOLOGY CORPORATION",
-      "agency": "Department of Veterans Affairs",
-      "office": "TECHNOLOGY ACQUISITION CENTER NJ (36C10B)",
-      "end_date": "2027-09-29",
-      "obligated_m": 31.6,
+      "office": "FA8609 AFLCMC WLCK KC46",
+      "end_date": "2027-06-30",
+      "obligated_m": 32.3,
       "p_change": 0.898,
       "top_driver": "how often this office changes vendors",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_36C10B26F0468_3600_47QTCA26D007C_4732/"
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_FA860925FB031_9700_FA860922DB009_9700/"
     },
     {
-      "piid": "W519TC25F0231",
-      "incumbent": "BOWHEAD BASE OPERATIONS LLC",
+      "piid": "W519TC23F0332",
+      "incumbent": "PHOENIX MANAGEMENT INC",
       "agency": "Department of Defense",
       "office": "W6QK ACC-RI",
-      "end_date": "2027-07-15",
-      "obligated_m": 7.2,
+      "end_date": "2027-07-16",
+      "obligated_m": 5.9,
       "p_change": 0.898,
       "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W519TC25F0231_9700_W52P1J19G0023_9700/"
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W519TC23F0332_9700_W52P1J17G0094_9700/"
+    },
+    {
+      "piid": "W91CRB26FA232",
+      "incumbent": "AVON PROTECTION CERADYNE LLC",
+      "agency": "Department of Defense",
+      "office": "W6QK ACC-APG",
+      "end_date": "2027-09-30",
+      "obligated_m": 14.3,
+      "p_change": 0.898,
+      "top_driver": "single- or multiple-award vehicle",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W91CRB26FA232_9700_W91CRB21D0022_9700/"
+    },
+    {
+      "piid": "FA301623F0413",
+      "incumbent": "SYSCOM, INC",
+      "agency": "Department of Defense",
+      "office": "FA3016  502 CONS CL",
+      "end_date": "2027-09-27",
+      "obligated_m": 7.4,
+      "p_change": 0.898,
+      "top_driver": "how the last award was competed",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_FA301623F0413_9700_47QTCB22D0179_4732/"
+    },
+    {
+      "piid": "36C10B25F0266",
+      "incumbent": "KING STREET TECHNOLOGY PARTNERS, LLC",
+      "agency": "Department of Veterans Affairs",
+      "office": "TECHNOLOGY ACQUISITION CENTER NJ (36C10B)",
+      "end_date": "2027-05-01",
+      "obligated_m": 18.7,
+      "p_change": 0.898,
+      "top_driver": "single- or multiple-award vehicle",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_36C10B25F0266_3600_47QTCA23D00ET_4732/"
+    },
+    {
+      "piid": "FA489024F0088",
+      "incumbent": "TACTICAL AIR SUPPORT, INC.",
+      "agency": "Department of Defense",
+      "office": "FA4890  HQ ACC AMIC",
+      "end_date": "2027-09-28",
+      "obligated_m": 36.6,
+      "p_change": 0.898,
+      "top_driver": "how often this office changes vendors",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_FA489024F0088_9700_FA489020D0006_9700/"
+    },
+    {
+      "piid": "W519TC25F0295",
+      "incumbent": "ADEPTUS SOLUTIONS, INC.",
+      "agency": "Department of Defense",
+      "office": "W6QK ACC-RI",
+      "end_date": "2027-07-16",
+      "obligated_m": 5.5,
+      "p_change": 0.898,
+      "top_driver": "single- or multiple-award vehicle",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W519TC25F0295_9700_GS00F152GA_4732/"
+    },
+    {
+      "piid": "FA489024F0091",
+      "incumbent": "TACTICAL AIR SUPPORT, INC.",
+      "agency": "Department of Defense",
+      "office": "FA4890  HQ ACC AMIC",
+      "end_date": "2027-09-28",
+      "obligated_m": 59.0,
+      "p_change": 0.898,
+      "top_driver": "how often this office changes vendors",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_FA489024F0091_9700_FA489020D0006_9700/"
+    },
+    {
+      "piid": "W519TC23F2610",
+      "incumbent": "WESTERN DOOR FEDERAL, LLC",
+      "agency": "Department of Defense",
+      "office": "W6QK ACC-RI",
+      "end_date": "2027-09-26",
+      "obligated_m": 5.6,
+      "p_change": 0.898,
+      "top_driver": "how the last award was competed",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_W519TC23F2610_9700_47QTCB21D0207_4732/"
     }
   ],
   "biggest_moves": [
+    {
+      "piid": "75N98024F00001",
+      "incumbent": "AT-IMPACT LLC",
+      "agency": "Department of Health and Human Services",
+      "office": "NATIONAL INSTITUTES OF HEALTH OLAO",
+      "end_date": "2027-08-12",
+      "obligated_m": 5.3,
+      "p_change": 0.898,
+      "top_driver": "how the last award was competed",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_75N98024F00001_7529_75N98120D00242_7529/",
+      "delta": 0.682
+    },
     {
       "piid": "75N98024F00001",
       "incumbent": "DYNANET CORPORATION",
@@ -290,40 +302,28 @@
       "delta": -0.682
     },
     {
-      "piid": "75N98024F00001",
-      "incumbent": "AT-IMPACT LLC",
+      "piid": "75N98026F00001",
+      "incumbent": "JS TECHNOLOGY, INC",
       "agency": "Department of Health and Human Services",
       "office": "NATIONAL INSTITUTES OF HEALTH OLAO",
-      "end_date": "2027-08-12",
+      "end_date": "2026-12-31",
       "obligated_m": 5.3,
-      "p_change": 0.898,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_75N98024F00001_7529_75N98120D00242_7529/",
-      "delta": 0.682
+      "p_change": 0.776,
+      "top_driver": "single- or multiple-award vehicle",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_75N98026F00001_7529_75N98019D00044_7529/",
+      "delta": 0.561
     },
     {
       "piid": "75N98026F00001",
-      "incumbent": "NATIONAL JEWISH HEALTH",
+      "incumbent": "REGENTS OF THE UNIVERSITY OF CALIFORNIA, SAN FRANCISCO, THE",
       "agency": "Department of Health and Human Services",
       "office": "NATIONAL INSTITUTES OF HEALTH OLAO",
-      "end_date": "2027-08-09",
-      "obligated_m": 9.3,
+      "end_date": "2027-07-24",
+      "obligated_m": 7.5,
       "p_change": 0.215,
       "top_driver": "incumbent's other awards at this office",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_75N98026F00001_7529_75N92023D00011_7529/",
+      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_75N98026F00001_7529_75N92025D00023_7529/",
       "delta": -0.561
-    },
-    {
-      "piid": "75N98024F00001",
-      "incumbent": "MACKSON CONSULTING, LLC",
-      "agency": "Department of Health and Human Services",
-      "office": "OMAS STRATEGIC BUYING CENTER - INFORMATION TECHNOLOGY",
-      "end_date": "2027-08-21",
-      "obligated_m": 9.5,
-      "p_change": 0.776,
-      "top_driver": "how the last award was competed",
-      "usaspending": "https://www.usaspending.gov/award/CONT_AWD_75N98024F00001_7529_75N98121D00006_7529/",
-      "delta": 0.561
     },
     {
       "piid": "75N98026F00001",
@@ -350,6 +350,6 @@
       "delta": 0.561
     }
   ],
-  "dropped_off": 95,
-  "added": 845
+  "dropped_off": 44,
+  "added": 213
 }
